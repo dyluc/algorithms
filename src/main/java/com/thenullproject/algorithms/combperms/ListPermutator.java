@@ -7,7 +7,7 @@ public class ListPermutator {
     }
 
     public void computePermutations() {
-        char a[] = "hil".toCharArray();
+        char[] a = "hil".toCharArray();
         permutations(a, 0, a.length);
     }
 

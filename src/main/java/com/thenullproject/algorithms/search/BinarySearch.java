@@ -18,7 +18,8 @@ public class BinarySearch {
     private static int indexOf(int[] arr, int find) {
 
         int iter = 0;
-        int start = 0, end = arr.length-1;
+        int start = 0;
+        int end = arr.length-1;
         int i;
 
         do {

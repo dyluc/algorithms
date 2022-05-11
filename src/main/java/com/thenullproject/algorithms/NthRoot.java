@@ -9,7 +9,8 @@ public class NthRoot {
 
     public static double root(int n, double a) { // x^n = a
 
-        double start = 0, end = a;
+        double start = 0;
+        double end = a;
         double x; // number we are looking for
         double res = 0; // result of calculation (should converge towards a)
 
