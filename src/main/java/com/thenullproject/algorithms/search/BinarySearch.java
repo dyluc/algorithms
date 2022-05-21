@@ -24,7 +24,7 @@ public class BinarySearch {
 
         do {
             iter++;
-            i = (start + end) / 2;
+            i = start + (end - start) / 2;
 
             if (arr[i] == find) {
                 System.out.println("Comparisons: " + iter);
@@ -39,5 +39,29 @@ public class BinarySearch {
 
         System.out.println("Comparisons: " + iter);
         return -1;
+    }
+
+    public static int searchInsert(int[] nums, int target) {
+
+        int start = 0, end = nums.length - 1;
+        int i;
+        int val;
+
+        do {
+            i = start + (end - start) / 2;
+            val = nums[i];
+
+            if(val == target) {
+                return i;
+            } else if(val >= target) {
+                end = i - 1;
+            } else { // val < target
+                start = i + 1;
+            }
+
+        } while(start <= end);
+
+        return start;
+
     }
 }

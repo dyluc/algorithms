@@ -1,5 +1,6 @@
 package com.thenullproject.algorithms;
 
+// Collections of sliding window problems
 public class SlidingWindow {
 
     public static void main(String[] args) {
