@@ -1,5 +1,6 @@
 package com.thenullproject.algorithms.combperms;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,40 +25,41 @@ import java.util.List;
  * This is a type of backtracking problem, which means it will involve a type of recursive algorithm that builds a solution
  * incrementally, whilst removing parts of the solution that fail to satisfy the problem constraints.
  *
- * (See resources/diagrams/KCombinations.png)
  */
 public class KCombinations {
 
     public static void main(String[] args) {
 
-        combine(5, 3);
-    }
+        int n = 5, k = 4;
+        List<LinkedList<Integer>> combinations = new ArrayList<>();
 
-    private static List<List<Integer>> combine(int n, int k) {
+        // Formula to calculate combinations (n = number of objects in set, k = number of choosing objects from set)
+        //     n!
+        // ----------
+        //  k!(n-k)!
 
-        List<List<Integer>> all = new LinkedList<>();
+        // An array of items [1, ..., n] find combinations of length k
+        // e.g. [1, 2, 3, 4] n = 4, k = 2, combs = 4! / 4 = 6
 
-        backtrack(1, new LinkedList<>(), all, n, k);
-
-        System.out.println("Number of Combinations: " + all.size());
-
-        for (List<Integer> list : all) {
-            System.out.println(list);
-        }
-
-        return all;
+        backtrack(new LinkedList<>(), combinations, 1, n, k);
+        System.out.println("Number of Combinations: " + combinations.size());
+        combinations.forEach(System.out::println);
 
     }
 
-    private static void backtrack(int begin, LinkedList<Integer> comb, List<List<Integer>> all, int n, int k) {
+    private static void backtrack(LinkedList<Integer> comb, List<LinkedList<Integer>> combinations, int start, int n, int k) {
+
+        // base case
         if(comb.size() == k) {
-            all.add(new LinkedList<>(comb));
+            combinations.add(new LinkedList<>(comb));
             return;
         }
 
-        for (int i = begin; i <= n; i++) {
+        // build combination
+        for(int i = start; i <= n; i++) {
             comb.add(i);
-            backtrack(i+1, comb, all, n, k);
+//            backtrack(comb, combinations, start + 1, n, k); // including repeats
+            backtrack(comb, combinations, i + 1, n, k); // excluding repeats
             comb.removeLast();
         }
     }
