@@ -29,7 +29,7 @@ public class BinarySearch {
             if (arr[i] == find) {
                 System.out.println("Comparisons: " + iter);
                 return i;
-            } else if(arr[i] >= find) {
+            } else if(arr[i] > find) {
                 end = i - 1;
             } else { // arr[i] < find
                 start = i + 1;
@@ -53,7 +53,7 @@ public class BinarySearch {
 
             if(val == target) {
                 return i;
-            } else if(val >= target) {
+            } else if(val > target) {
                 end = i - 1;
             } else { // val < target
                 start = i + 1;
