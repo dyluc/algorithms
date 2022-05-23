@@ -1,4 +1,4 @@
-package com.thenullproject.algorithms;
+package com.thenullproject.algorithms.arrays;
 
 // Finding the sub array with the largest sum
 public class MaxSubArray {

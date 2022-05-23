@@ -1,4 +1,4 @@
-package com.thenullproject.algorithms;
+package com.thenullproject.algorithms.arrays;
 
 // Collections of sliding window problems
 public class SlidingWindow {

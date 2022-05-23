@@ -1,4 +1,4 @@
-package com.thenullproject.algorithms;
+package com.thenullproject.algorithms.arrays;
 
 import java.util.Arrays;
 
