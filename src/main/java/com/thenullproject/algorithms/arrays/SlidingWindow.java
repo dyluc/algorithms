@@ -1,7 +1,9 @@
 package com.thenullproject.algorithms.arrays;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 // Collections of sliding window problems
 public class SlidingWindow {
@@ -16,8 +18,40 @@ public class SlidingWindow {
         int largestSum = findLargestSumOfKConsecutiveElements(arr, k);
         System.out.println("Largest sum is " + largestSum);
 
-        String s = "hello world", t = "wld";
-        System.out.println("Minimum substring is " + minWindow(s, t));
+//        String s = "hello world", t = "wld";
+//        System.out.println("Minimum substring is " + minWindow(s, t));
+
+        String s = "ab";
+        System.out.println(lengthOfLongestSubstring(s));
+
+    }
+
+    // Problem 3. Longest substring without repeating characters
+    private static int lengthOfLongestSubstring(String s) {
+
+        if(s.length() == 1)
+            return 1;
+
+        Set<Character> charSet = new HashSet<>();
+        int p1 = 0, p2 = 0;
+        int largest = 0;
+
+        char c1;
+        char c2;
+
+        while(p2 < s.length()) {
+            c2 = s.charAt(p2);
+
+            if(!charSet.add(c2)) {
+                largest = Math.max(largest, p2 - p1);
+                while((c1 = s.charAt(p1++)) != c2)
+                    charSet.remove(c1);
+            }
+
+            p2++;
+        }
+
+        return Math.max(largest, p2 - p1);
 
     }
 

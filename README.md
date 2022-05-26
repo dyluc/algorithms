@@ -5,6 +5,10 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=dyluc_algorithms&metric=security_rating)](https://sonarcloud.io/dashboard?id=dyluc_algorithms)
 
 ---
+
+> Note: Most of these are LeetCode solutions.
+
+
 ### Sorting Algorithms
 
 #### Merge Sort
